@@ -17,17 +17,25 @@
 
 body {
   background-color: #262A33;
+  padding: 20px;
+  color: #935DE3;
+}
+
+hr {
+  border-color: #935DE3;
+  margin: 7px 0 15px;
 }
 
 ul.event-list {
   list-style-type: none;
+  margin-top: 40px;
   padding: 0;
-
-  h1, * {
-    color: #935DE3;
-  }
 }
 
-.btn-group {
-  margin: 10px;
+.event-date {
+  max-width: 100px;
+}
+
+.event-title {
+  color: white;
 }

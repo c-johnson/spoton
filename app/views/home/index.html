@@ -5,9 +5,15 @@
   </div>
 
   <ul class="event-list">
-    <h1>Count = {{events.length}}</h1>
     <li ng-repeat="event in events">
-      {{event.title}}
+      <div class="row">
+        <div class="col-sm-2 event-date">
+          Wed 1
+        </div>
+        <p class="col-sm-10 event-title">
+          {{event.title}}
+        </p>
+      </div>
       <hr />
     </li>
   </ul>
