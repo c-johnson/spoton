@@ -8,11 +8,13 @@
     <li ng-repeat="event in events">
       <div class="clearfix">
         <div class="event-date">
-          Wed <br><span class="event-date-number">1</span>
+          <div>Wed</div>
+          <div class="event-date-number">1</div>
         </div>
-        <p class="event-title">
-          {{event.title}}
-        </p>
+        <div class="event-desc">
+          <div>11:30am - 2:00pm</div>
+          <div class="event-title">{{event.title}}</div>
+        </div>
       </div>
       <hr />
     </li>

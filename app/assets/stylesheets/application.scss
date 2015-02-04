@@ -23,7 +23,7 @@ body {
 
 hr {
   border-color: #935DE3;
-  margin: 7px 0 15px;
+  margin: 15px 0;
 }
 
 ul.event-list {
@@ -32,10 +32,9 @@ ul.event-list {
   padding: 0;
 }
 
-.event-date, .event-title {
-  /*display: block;*/
+.event-date, .event-desc {
   float: left;
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 .event-date {
