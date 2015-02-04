@@ -32,8 +32,14 @@ ul.event-list {
   padding: 0;
 }
 
+.event-date, .event-title {
+  /*display: block;*/
+  float: left;
+  margin-right: 20px;
+}
+
 .event-date {
-  max-width: 100px;
+  text-align: center;
 }
 
 .event-title {
