@@ -1,10 +1,27 @@
 <div ng-controller="HomeCtrl">
   <div class="btn-group" ng-model="toggleButton" bs-radio-group>
-    <label class="btn btn-default"><input type="radio" class="btn btn-default" value="list">List</label>
-    <label class="btn btn-default"><input type="radio" class="btn btn-default" value="grid">Grid</label>
+    <label class="btn btn-default" ng-click="activate('list')"><input type="radio" class="btn btn-default" value="list">List</label>
+    <label class="btn btn-default" ng-click="activate('grid')"><input type="radio" class="btn btn-default" value="grid">Grid</label>
   </div>
 
-  <ul class="event-list">
+  <ul class="event-list" ng-class="{'list-view': toggleButton === 'list', 'grid-view': toggleButton === 'grid'}">
+    <li class="event-item" ng-repeat="event in events">
+      <div class="clearfix">
+        <div class="event-date">
+          <div>Wed</div>
+          <div class="event-date-number">1</div>
+        </div>
+        <div class="event-desc">
+          <div>11:30am - 2:00pm</div>
+          <div class="event-title">{{event.title}}</div>
+        </div>
+      </div>
+      <hr />
+    </li>
+  </ul>
+
+
+<!--   <ul class="event-list list-view">
     <li ng-repeat="event in events">
       <div class="clearfix">
         <div class="event-date">
@@ -19,4 +36,6 @@
       <hr />
     </li>
   </ul>
+ -->
+
 </div>

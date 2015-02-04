@@ -32,15 +32,39 @@ ul.event-list {
   padding: 0;
 }
 
-.event-date, .event-desc {
-  float: left;
-  margin-right: 30px;
-}
-
-.event-date {
-  text-align: center;
-}
-
 .event-title {
   color: white;
+}
+
+ul.event-list.list-view {
+  .event-date, .event-desc {
+    float: left;
+    margin-right: 30px;
+  }
+
+  .event-date {
+    text-align: center;
+  }
+}
+
+ul.event-list.grid-view {
+  clear: both;
+  
+  hr {
+    display: none;
+  }
+
+  .event-item {
+    float: left;
+    width: 200px;
+    min-height: 120px;
+    padding: 5px;
+    margin-right: 15px;
+    border-radius: 3px;
+    border: 1px solid #935DE3;
+  }
+
+  .event-date div {
+    display: inline;
+  }
 }
