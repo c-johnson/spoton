@@ -1,5 +1,3 @@
-<h1>Hello!</h1>
-
 <div ng-controller="HomeCtrl">
   <div class="btn-group" ng-model="button.radio" bs-radio-group>
     <label class="btn btn-default"><input type="radio" class="btn btn-default" value="0">List</label>
@@ -7,7 +5,10 @@
   </div>
 
   <ul class="event-list">
-    <li>Wed 1</li>
-    <li>Wed 1</li>
+    <h1>Count = {{events.length}}</h1>
+    <li ng-repeat="event in events">
+      {{event.title}}
+      <hr />
+    </li>
   </ul>
 </div>

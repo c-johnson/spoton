@@ -22,5 +22,12 @@ body {
 ul.event-list {
   list-style-type: none;
   padding: 0;
-  color: #935DE3;
+
+  h1, * {
+    color: #935DE3;
+  }
+}
+
+.btn-group {
+  margin: 10px;
 }

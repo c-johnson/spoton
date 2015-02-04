@@ -5,7 +5,20 @@ require 'nokogiri'
 class HomeController < ApplicationController
   def index
 
-    map = {
+  end
+
+  def events
+    events = scrape(map[:stanford])
+
+    respond_to do |format|
+      format.json { render json: events}
+    end
+  end
+
+  private
+
+  def map
+    {
       stanford: {
         url: "http://events.stanford.edu/2014/October/1/",
         root_id: "#main-content",
@@ -14,11 +27,7 @@ class HomeController < ApplicationController
         date_id: ".postcard-text strong",
       }
     }
-
-    scrape(map[:stanford])
   end
-
-  private
 
   # Output:  
   # => Date
@@ -28,8 +37,6 @@ class HomeController < ApplicationController
     response = Unirest.get(ids[:url])
     html_doc = Nokogiri::HTML(response.body)
     html_arr = html_doc.css(ids[:root_id]).css(ids[:li_id])
-
-    # binding.pry
 
     return_hash = html_arr.map do |item|
       {
