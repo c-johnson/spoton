@@ -17,6 +17,7 @@
 //= require angularjs/angular
 //= require angular-strap/dist/angular-strap
 //= require angular-strap/dist/angular-strap-tpl
+//= require moment/moment
 //= require_self
 //= require_tree .
 
