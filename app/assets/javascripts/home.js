@@ -37,7 +37,6 @@ spoton.controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
     var src = $scope.selectedSource;
     $http.get('/events/'+src.value+'.json')
       .success(function(data) {
-        debugger
         $scope.events = $scope.processData(data);
       });
   };
