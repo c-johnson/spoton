@@ -47,6 +47,7 @@ spoton.controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
         data[i].date = mDate;
         data[i].dayOfWeek = mDate.format('ddd');
         data[i].dayOfMonth = mDate.format('D');
+        data[i].timeOfEvent = mDate.format('h:mma');
       }
     }
     return data;
