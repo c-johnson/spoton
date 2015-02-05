@@ -15,6 +15,14 @@ spoton.controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
     {
       label: "Eventbrite",
       value: 'eventbrite'
+    },
+    {
+      label: "SF Moma",
+      value: 'sf_moma'
+    },
+    {
+      label: "Meetup.com",
+      value: 'meetup'
     }
   ];
 

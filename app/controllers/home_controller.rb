@@ -39,6 +39,20 @@ class HomeController < ApplicationController
         li_id: '.g-cell.l-padded-v',
         title_id: 'h4',
         date_id: '.event-poster__date'
+      },
+      sf_moma: {
+        url: "http://www.sfmoma.org/",
+        root_id: '.interim-content-modules',
+        li_id: '.mod.third',
+        title_id: '.title',
+        date_id: '.date'
+      },
+      meetup: {
+        url: "http://www.meetup.com/find/events/?allMeetups=true&radius=5&userFreeform=Redwood+City%2C+CA&mcId=z94061&mcName=Redwood+City%2C+CA",
+        root_id: '.search-result.search-list',
+        li_id: '.event-listing',
+        title_id: '[itemprop="summary"]',
+        date_id: '[itemprop="startDate"]'
       }
     }
   end
@@ -52,8 +66,10 @@ class HomeController < ApplicationController
     html_doc = Nokogiri::HTML(response.body)
     html_arr = html_doc.css(ids[:root_id]).css(ids[:li_id])
 
+    # binding.pry if ids[:url] == "http://www.sfmoma.org/"
+
     return_hash = html_arr.map do |item|
-      # binding.pry if ids[:url] == "https://www.eventbrite.com/"
+      # binding.pry if ids[:url] == "http://www.sfmoma.org/"
       title = item.css(ids[:title_id]).try(:text).try(:strip) || ""
       date = item.css(ids[:date_id]).try(:text).try(:strip) || ""
       if title != ""
