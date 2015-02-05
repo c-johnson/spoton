@@ -23,6 +23,8 @@ class HomeController < ApplicationController
         url: "http://events.stanford.edu",
         root_id: "#main-content",
         li_id: ".postcard-link",
+        link_id: "root",
+        link_root: "http://events.stanford.edu",
         title_id: ".postcard-text h3",
         date_id: ".postcard-text strong",
       },
