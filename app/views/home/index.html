@@ -20,7 +20,7 @@
 
   <ul class="event-list" ng-class="{'list-view': toggleButton === 'list', 'grid-view': toggleButton === 'grid'}" ng-show="events.length > 0">
     <li class="event-item" ng-repeat="event in events">
-      <a href="http://www.google.com" target="_blank">
+      <a href="{{event.link || 'http://www.google.com'}}" target="_blank">
         <div class="clearfix">
           <div class="event-date">
             <div>{{event.dayOfWeek || "Wed"}}</div>

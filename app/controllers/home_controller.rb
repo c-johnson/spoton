@@ -30,6 +30,8 @@ class HomeController < ApplicationController
         url: "http://events.stanford.edu/2014/October/1/",
         root_id: "#main-content",
         li_id: ".postcard-link",
+        link_id: "root",
+        link_root: "http://events.stanford.edu",
         title_id: ".postcard-text h3",
         date_id: ".postcard-text strong",
       },
@@ -57,6 +59,10 @@ class HomeController < ApplicationController
     }
   end
 
+  def extract_link
+
+  end
+
   # Output:  
   # => Date
   # => Title
@@ -69,15 +75,26 @@ class HomeController < ApplicationController
     # binding.pry if ids[:url] == "http://www.sfmoma.org/"
 
     return_hash = html_arr.map do |item|
-      # binding.pry if ids[:url] == "http://www.sfmoma.org/"
-      # binding.pry
+      # binding.pry if ids[:url] == "http://events.stanford.edu/2014/October/1/"
+
       title = item.css(ids[:title_id]).try(:text).try(:strip) || ""
       date_str = item.css(ids[:date_id]).try(:text).try(:strip) || ""
+
+      if ids[:link_id] == "root"
+        link_str = item.attributes["href"].value || ""  
+      elsif ids[:link_id] != nil
+        link_str = item.css(ids[:link_id]).attributes["href"].value || ""  
+      end
+      
+      if ids[:link_root] != nil
+        link_str = URI.join(ids[:link_root], link_str).to_s
+      end
 
       if title != ""
         {
           title: title,
           date: date_str,
+          link: link_str || ""
         }
       else
         nil
