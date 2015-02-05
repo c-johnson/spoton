@@ -32,6 +32,13 @@ class HomeController < ApplicationController
         li_id: ".postcard-link",
         title_id: ".postcard-text h3",
         date_id: ".postcard-text strong",
+      },
+      eventbrite: {
+        url: "https://www.eventbrite.com/",
+        root_id: '.g-grid.l-padded-v-bottom-5',
+        li_id: '.g-cell.l-padded-v',
+        title_id: 'h4',
+        date_id: '.event-poster__date'
       }
     }
   end
@@ -46,13 +53,17 @@ class HomeController < ApplicationController
     html_arr = html_doc.css(ids[:root_id]).css(ids[:li_id])
 
     return_hash = html_arr.map do |item|
-      {
-        title: item.css(ids[:title_id])[0].text.strip,
-        date: item.css(ids[:date_id])[0].text.strip,
-      }
-    end
-
-    # binding.pry
+      # binding.pry if ids[:url] == "https://www.eventbrite.com/"
+      title = item.css(ids[:title_id]).try(:text).try(:strip) || ""
+      date = item.css(ids[:date_id]).try(:text).try(:strip) || ""
+      if title != ""
+        {
+          title: title,
+          date: date,
+        }
+      else
+        nil
+      end
+    end.compact
   end
-
 end
