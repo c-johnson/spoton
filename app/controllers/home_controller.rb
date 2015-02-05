@@ -58,6 +58,7 @@ class HomeController < ApplicationController
         url: "http://www.meetup.com/find/events/?allMeetups=true&radius=5&userFreeform=Redwood+City%2C+CA&mcId=z94061&mcName=Redwood+City%2C+CA",
         root_id: '.search-result.search-list',
         li_id: '.event-listing',
+        link_id: ".event-title",
         title_id: '[itemprop="summary"]',
         date_id: '[itemprop="startDate"]'
       }
