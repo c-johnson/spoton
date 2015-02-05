@@ -61,6 +61,14 @@ class HomeController < ApplicationController
         link_id: ".event-title",
         title_id: '[itemprop="summary"]',
         date_id: '[itemprop="startDate"]'
+      },
+      sf_funcheap: {
+        url: "http://sf.funcheap.com/",
+        root_id: '.upcoming-calendar',
+        li_id: 'tr',
+        link_id: "a",
+        title_id: 'a',
+        date_id: '[style="width:66px"]'
       }
     }
   end
@@ -90,7 +98,10 @@ class HomeController < ApplicationController
         link_str = item.attributes["href"].value || ""  
       elsif ids[:link_id] != nil
         link_attr = ids[:link_attr] || "href"
-        link_str = item.css(ids[:link_id])[0].attributes[link_attr].value || ""  
+        link_node = item.css(ids[:link_id])
+        if !link_node.empty?
+          link_str = item.css(ids[:link_id])[0].attributes[link_attr].value || ""  
+        end
       end
       
       if ids[:link_root] != nil

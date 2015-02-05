@@ -23,6 +23,10 @@ spoton.controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
     {
       label: "Meetup.com",
       value: 'meetup'
+    },
+    {
+      label: "SF Fun Cheap",
+      value: 'sf_funcheap'
     }
   ];
 
