@@ -1,10 +1,24 @@
 <div ng-controller="HomeCtrl">
+
+  <h1>SpotOn Event Calendar</h1>
+
+  <label>Single event source:</label>
+  <select ng-model="selectedSource" ng-options="src as src.label for src in sources" ng-change="loadSource()"></select>
+
+<!--   <label>Single select:&nbsp;</label>
+  <button type="button" class="btn btn-default" ng-model="selectedSource" data-html="1" ng-options="src.value as src.label for src in sources" bs-select>
+    Action <span class="caret"></span>
+  </button> -->
+  <hr>
+
+  <br><br>
+
   <div class="btn-group" ng-model="toggleButton" bs-radio-group>
     <label class="btn btn-default" ng-click="activate('list')"><input type="radio" class="btn btn-default" value="list">List</label>
     <label class="btn btn-default" ng-click="activate('grid')"><input type="radio" class="btn btn-default" value="grid">Grid</label>
   </div>
 
-  <ul class="event-list" ng-class="{'list-view': toggleButton === 'list', 'grid-view': toggleButton === 'grid'}">
+  <ul class="event-list" ng-class="{'list-view': toggleButton === 'list', 'grid-view': toggleButton === 'grid'}" ng-show="events.length > 0">
     <li class="event-item" ng-repeat="event in events">
       <div class="clearfix">
         <div class="event-date">
@@ -20,22 +34,7 @@
     </li>
   </ul>
 
-
-<!--   <ul class="event-list list-view">
-    <li ng-repeat="event in events">
-      <div class="clearfix">
-        <div class="event-date">
-          <div>Wed</div>
-          <div class="event-date-number">1</div>
-        </div>
-        <div class="event-desc">
-          <div>11:30am - 2:00pm</div>
-          <div class="event-title">{{event.title}}</div>
-        </div>
-      </div>
-      <hr />
-    </li>
-  </ul>
- -->
-
+  <div ng-show="events.length === 0">
+    <img class="spinner" src="/assets/spinner.gif">
+  </div>
 </div>

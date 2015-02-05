@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  get '/events' => 'home#events'
+  get '/events/:src' => 'home#events'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   end
 
   def events
-    events = scrape(map[:stanford])
+    events = scrape(map[params['src'].to_sym])
 
     respond_to do |format|
       format.json { render json: events}
@@ -20,6 +20,13 @@ class HomeController < ApplicationController
   def map
     {
       stanford: {
+        url: "http://events.stanford.edu/2014/October/1/",
+        root_id: "#main-content",
+        li_id: ".postcard-link",
+        title_id: ".postcard-text h3",
+        date_id: ".postcard-text strong",
+      },
+      eventbrite: {
         url: "http://events.stanford.edu/2014/October/1/",
         root_id: "#main-content",
         li_id: ".postcard-link",

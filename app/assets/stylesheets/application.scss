@@ -36,6 +36,11 @@ ul.event-list {
   color: white;
 }
 
+.spinner {
+  width: 100px;
+  margin: 30px;
+}
+
 ul.event-list.list-view {
   .event-date, .event-desc {
     float: left;
