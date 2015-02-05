@@ -20,13 +20,13 @@ class HomeController < ApplicationController
   def map
     {
       stanford: {
-        url: "http://events.stanford.edu/2014/October/1/",
+        url: "http://events.stanford.edu",
         root_id: "#main-content",
         li_id: ".postcard-link",
         title_id: ".postcard-text h3",
         date_id: ".postcard-text strong",
       },
-      eventbrite: {
+      stanford_oct: {
         url: "http://events.stanford.edu/2014/October/1/",
         root_id: "#main-content",
         li_id: ".postcard-link",

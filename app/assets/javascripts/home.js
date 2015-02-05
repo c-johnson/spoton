@@ -9,8 +9,8 @@ spoton.controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
       value: 'stanford'
     },
     {
-      label: "Eventbrite Event Calendar",
-      value: 'eventbrite'
+      label: "Stanford Event Calendar (oct)",
+      value: 'stanford_oct'
     }
   ];
 
