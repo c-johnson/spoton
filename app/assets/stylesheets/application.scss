@@ -21,6 +21,11 @@ body {
   color: #935DE3;
 }
 
+a, a:hover, a:visited {
+  color: #935DE3;
+  text-decoration: none;
+}
+
 hr {
   border-color: #935DE3;
   margin: 15px 0;
@@ -30,6 +35,10 @@ ul.event-list {
   list-style-type: none;
   margin-top: 40px;
   padding: 0;
+}
+
+.clearfix {
+  clear: both;
 }
 
 .event-title {

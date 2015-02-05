@@ -31,10 +31,25 @@ spoton.controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
   $scope.loadSource = function () {
     $scope.events = [];
     var src = $scope.selectedSource;
-    $http.get('http://localhost:3000/events/'+src.value+'.json')
+    $http.get('/events/'+src.value+'.json')
       .success(function(data) {
-        $scope.events = data;
+        debugger
+        $scope.events = $scope.processData(data);
       });
+  };
+
+  $scope.processData = function (data) {
+    for (var i = 0; i < data.length; i++) {
+      var mDate = moment(data[i].date);
+      if (mDate.toString() === "Invalid date") {
+        data[i].date = null;
+      } else {
+        data[i].date = mDate;
+        data[i].dayOfWeek = mDate.format('ddd');
+        data[i].dayOfMonth = mDate.format('D');
+      }
+    }
+    return data;
   };
 
   $scope.activate = function (active) {

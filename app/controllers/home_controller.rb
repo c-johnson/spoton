@@ -70,12 +70,14 @@ class HomeController < ApplicationController
 
     return_hash = html_arr.map do |item|
       # binding.pry if ids[:url] == "http://www.sfmoma.org/"
+      # binding.pry
       title = item.css(ids[:title_id]).try(:text).try(:strip) || ""
-      date = item.css(ids[:date_id]).try(:text).try(:strip) || ""
+      date_str = item.css(ids[:date_id]).try(:text).try(:strip) || ""
+
       if title != ""
         {
           title: title,
-          date: date,
+          date: date_str,
         }
       else
         nil

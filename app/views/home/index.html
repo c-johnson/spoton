@@ -20,16 +20,18 @@
 
   <ul class="event-list" ng-class="{'list-view': toggleButton === 'list', 'grid-view': toggleButton === 'grid'}" ng-show="events.length > 0">
     <li class="event-item" ng-repeat="event in events">
-      <div class="clearfix">
-        <div class="event-date">
-          <div>Wed</div>
-          <div class="event-date-number">1</div>
+      <a href="http://www.google.com" target="_blank">
+        <div class="clearfix">
+          <div class="event-date">
+            <div>{{event.dayOfWeek || "Wed"}}</div>
+            <div class="event-date-number">{{event.dayOfMonth || "1"}}</div>
+          </div>
+          <div class="event-desc">
+            <div>11:30am - 2:00pm</div>
+            <div class="event-title">{{event.title}}</div>
+          </div>
         </div>
-        <div class="event-desc">
-          <div>11:30am - 2:00pm</div>
-          <div class="event-title">{{event.title}}</div>
-        </div>
-      </div>
+      </a>
       <hr />
     </li>
   </ul>
