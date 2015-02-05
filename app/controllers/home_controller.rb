@@ -48,6 +48,9 @@ class HomeController < ApplicationController
         url: "http://www.sfmoma.org/",
         root_id: '.interim-content-modules',
         li_id: '.mod.third',
+        link_id: ".mod-link",
+        link_root: "http://sfmoma.org",
+        link_attr: "data-url",
         title_id: '.title',
         date_id: '.date'
       },
@@ -85,7 +88,8 @@ class HomeController < ApplicationController
       if ids[:link_id] == "root"
         link_str = item.attributes["href"].value || ""  
       elsif ids[:link_id] != nil
-        link_str = item.css(ids[:link_id]).attributes["href"].value || ""  
+        link_attr = ids[:link_attr] || "href"
+        link_str = item.css(ids[:link_id])[0].attributes[link_attr].value || ""  
       end
       
       if ids[:link_root] != nil
